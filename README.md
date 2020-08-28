@@ -2,6 +2,8 @@
 
 Browser extension to set Humio fields/columns on queries to a customizable preset list.
 
+![Screenshot of Humio](img/promo.png)
+
 Found a bug, or have an idea for an improvement? [Raise an issue](https://github.com/domdomegg/humio-column-setter/issues).
 
 ## 🙌 Contributing
