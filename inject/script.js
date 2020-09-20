@@ -42,9 +42,29 @@ const fn = () => {
     }
 }
 
-const interval = setInterval(() => {
-    if (!!document.getElementsByClassName('event-list-fields-tab__table--available')[0]) {
-        clearInterval(interval);
-        fn();
+const isSearchPage = (href) => {
+    return /https?:\/\/cloud\.humio\.com\/.*\/search(\?.*)?/.test(href)
+}
+
+let previousUrl = '', checkForSearchPageLoadInterval;
+const checkForPageChange = () => {
+    if (previousUrl != window.location.href) {
+        previousUrl = window.location.href;
+        if (isSearchPage(previousUrl)) {
+            if (!checkForSearchPageLoadInterval) {
+                checkForSearchPageLoadInterval = setInterval(() => {
+                    if (!!document.getElementsByClassName('event-list-fields-tab__table--available')[0]) {
+                        clearInterval(checkForSearchPageLoadInterval);
+                        fn();
+                    }
+                }, 250);
+            }
+        } else if (checkForSearchPageLoadInterval) {
+            clearInterval(checkForSearchPageLoadInterval);
+            checkForSearchPageLoadInterval = undefined;
+        }
     }
-}, 50);
+};
+
+const checkForPageChangeInterval = setInterval(checkForPageChange, 500);
+checkForPageChange();

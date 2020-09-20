@@ -18,8 +18,7 @@
   "content_scripts": [
     {
       "matches": [
-        "*://cloud.humio.com/*/search",
-        "*://cloud.humio.com/*/search?query*"
+        "*://cloud.humio.com/*"
       ],
       "js": [
         "inject/injector.js"
