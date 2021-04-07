@@ -1,7 +1,7 @@
 chrome.storage.sync.get({ fields: JSON.stringify(["@timestamp", "@rawstring"]) }, (data) => {
     // Inject preferences
     const s1 = document.createElement('script');
-    s1.textContent = `wanted = ${data.fields};`;
+    s1.textContent = `_domdomegg_hcs_fields = ${data.fields};`;
     (document.head||document.documentElement).appendChild(s1);
     s1.remove();
 

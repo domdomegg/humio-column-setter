@@ -1,50 +1,54 @@
 const fn = () => {
-    if (!Array.isArray(wanted) || wanted.length == 0) {
+    // Preferences injected to global variable in injector.js
+    /** @type {string[]} */
+    const fields = _domdomegg_hcs_fields;
+
+    if (!Array.isArray(fields) || fields.some(f => typeof f !== "string") || fields.length == 0) {
         throw new Error('Invalid preferences');
     }
 
     // Do nothing if the correct selection is already set
     if (new URLSearchParams(window.location.search).has('columns')) {
-        cols = new URLSearchParams(window.location.search).get('columns').split(',').map(x => x.slice(0, x.lastIndexOf('::')));
-        if (Array.isArray(wanted) && wanted.every((id, i) => id == cols[i])) {
+        const cols = new URLSearchParams(window.location.search).get('columns').split(',').map(x => x.slice(0, x.lastIndexOf('::')));
+        if (fields.every((id, i) => id == cols[i])) {
             console.log('Desired columns already set');
             return;
         }
     }
 
-    elmEntryPoint = document.getElementsByClassName('event-list-fields-tab__table--added')[0].getElementsByClassName('event-list-fields-tab__button')[0].elmFs.click;
+    const elmEntryPoint = document.querySelector('.event-list-fields-tab__table--added td:last-of-type button').elmFs.click;
 
-    deactivate = (id) => {
+    /** @param {string} id */
+    const deactivate = (id) => {
         console.log('Deactivating ' + id);
-        elmEntryPoint.q.a.a.a.a = id;
-        elmEntryPoint.q.a.a.a.$ = 7;
+        elmEntryPoint.q.a.g[0].a.a = id;
+        elmEntryPoint.q.a.g[0].a.$ = 7;
         elmEntryPoint({ stopPropagation: () => { } });
     }
 
-    activate = (id) => {
+    /** @param {string} id */
+    const activate = (id) => {
         console.log('Activating ' + id);
-        elmEntryPoint.q.a.a.a.a = id;
-        elmEntryPoint.q.a.a.a.$ = 6;
+        elmEntryPoint.q.a.g[0].a.a = id;
+        elmEntryPoint.q.a.g[0].a.$ = 6;
         elmEntryPoint({ stopPropagation: () => { } });
     }
 
-    activate(wanted[0]);
+    activate(fields[0]);
 
-    activated = [...document.getElementsByClassName('event-list-fields-tab__table--added')[0].getElementsByClassName('event-list-fields-tab__field-row')].map(x => x.id.slice(0, -4));
-    for (id of activated) {
-        if (id != wanted[0]) {
+    const activated = [...document.getElementsByClassName('event-list-fields-tab__table--added')[0].getElementsByClassName('group')].map(x => x.id.slice(0, -4));
+    for (const id of activated) {
+        if (id != fields[0]) {
             deactivate(id);
         }
     }
 
-    for (id of wanted.slice(1)) {
+    for (const id of fields.slice(1)) {
         activate(id);
     }
 }
 
-const isSearchPage = (href) => {
-    return /https?:\/\/cloud\.humio\.com\/.*\/search(\?.*)?/.test(href)
-}
+const isSearchPage = (href) => /https?:\/\/cloud\.humio\.com\/.*\/search(\?.*)?/.test(href);
 
 let previousUrl = '', checkForSearchPageLoadInterval;
 const checkForPageChange = () => {
