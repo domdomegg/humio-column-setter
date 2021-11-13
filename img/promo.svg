@@ -20,6 +20,18 @@
    inkscape:export-ydpi="76.800003">
   <defs
      id="defs2">
+    <linearGradient
+       inkscape:collect="always"
+       id="linearGradient973">
+      <stop
+         style="stop-color:#1a203e;stop-opacity:1;"
+         offset="0"
+         id="stop969" />
+      <stop
+         style="stop-color:#1a203e;stop-opacity:0;"
+         offset="1"
+         id="stop971" />
+    </linearGradient>
     <marker
        style="overflow:visible;"
        id="Arrow2Send"
@@ -76,6 +88,16 @@
          d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z "
          id="path890" />
     </marker>
+    <linearGradient
+       inkscape:collect="always"
+       xlink:href="#linearGradient973"
+       id="linearGradient975"
+       x1="23.283293"
+       y1="250.0024"
+       x2="-3.9827769"
+       y2="250.0024"
+       gradientUnits="userSpaceOnUse"
+       gradientTransform="translate(0,5.2633342)" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -84,9 +106,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.96858443"
-     inkscape:cx="820.56243"
-     inkscape:cy="491.94545"
+     inkscape:zoom="0.68489262"
+     inkscape:cx="813.51188"
+     inkscape:cy="588.99813"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      inkscape:document-rotation="0"
@@ -126,27 +148,27 @@
        x="-76.351196"
        y="6.0476141" />
     <rect
-       style="opacity:1;fill:#1a203e;stroke-width:0.164774;fill-opacity:1"
+       style="opacity:1;fill:url(#linearGradient975);fill-opacity:1;stroke-width:0.164774"
        id="rect879"
        width="431.60065"
        height="41.095638"
        x="-80.484863"
-       y="229.53531" />
+       y="234.79865" />
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:29.9372px;line-height:1.25;font-family:Rasa;-inkscape-font-specification:Rasa;fill:#ffffff;stroke-width:0.748432"
-       x="28.972187"
-       y="259.73572"
+       x="36.130119"
+       y="264.99905"
        id="text883"><tspan
          sodipodi:role="line"
          id="tspan881"
-         x="28.972187"
-         y="259.73572"
+         x="36.130119"
+         y="264.99905"
          style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:Laksaman;-inkscape-font-specification:Laksaman;fill:#ffffff;stroke-width:0.748432">Set default columns</tspan></text>
     <path
-       style="fill:none;stroke:#5a50e6;stroke-width:5;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Send)"
-       d="M 6.4998523,251.05681 C -13.819628,251.43937 -35.410372,249.43672 -28.641537,211.25367"
+       style="fill:none;stroke:#5a50e6;stroke-width:10;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Send)"
+       d="m -1.8044754,255.67626 c -18.3285446,0.34508 -29.1692876,-8.17613 -28.0378086,-35.41051 0.127927,-3.07916 0.875266,-6.14519 1.200747,-10.21346"
        id="path885"
-       sodipodi:nodetypes="cc" />
+       sodipodi:nodetypes="csc" />
   </g>
 </svg>
