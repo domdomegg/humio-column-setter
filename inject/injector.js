@@ -1,4 +1,6 @@
-chrome.storage.sync.get({ fields: JSON.stringify(["@timestamp", "@rawstring"]) }, (data) => {
+(async () => {
+    const data = await chrome.storage.sync.get({ fields: JSON.stringify(["@timestamp", "@rawstring"]) });
+    
     // Inject preferences
     const s1 = document.createElement('script');
     s1.textContent = `_domdomegg_hcs_fields = ${data.fields};`;
@@ -8,6 +10,8 @@ chrome.storage.sync.get({ fields: JSON.stringify(["@timestamp", "@rawstring"]) }
     // Inject script to run in page context
     const s2 = document.createElement('script');
     s2.src = chrome.runtime.getURL('inject/script.js');
-    s2.onload = s2.remove;
+    s2.onload = function() {
+        s2.remove();
+    };
     (document.head || document.documentElement).appendChild(s2);
-});
+})();

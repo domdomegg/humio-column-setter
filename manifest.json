@@ -1,7 +1,7 @@
 {
   "name": "Humio Column Setter",
   "version": "2.0.0",
-  "manifest_version": 2,
+  "manifest_version": 3,
   "description": "Set columns and fields automatically in Humio",
   "homepage_url": "http://github.com/domdomegg/humio-column-setter",
   "icons": {
@@ -11,7 +11,10 @@
     "128": "img/icon128.png",
     "512": "img/icon512.png"
   },
-  "options_page": "options/index.html",
+  "options_ui": {
+    "page": "options/index.html",
+    "open_in_tab": true
+  },
   "permissions": [
     "storage"
   ],
@@ -26,6 +29,9 @@
     }
   ],
   "web_accessible_resources": [
-    "inject/script.js"
+    {
+      "resources": ["inject/script.js"],
+      "matches": ["*://cloud.humio.com/*"]
+    }
   ]
 }
