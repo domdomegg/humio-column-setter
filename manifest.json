@@ -1,6 +1,6 @@
 {
   "name": "Humio Column Setter",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "manifest_version": 3,
   "description": "Set columns and fields automatically in Humio",
   "homepage_url": "http://github.com/domdomegg/humio-column-setter",
